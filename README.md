@@ -1,7 +1,7 @@
-# Workout Plan for Jessa
+# Workout Plan for leg day
 
 A gym workout plan focused on **legs**.
 
 ---
 
-*Created for Jessa.*
+_Created by Kam :)._
