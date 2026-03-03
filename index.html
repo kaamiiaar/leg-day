@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leg Workouts</title>
+    <title>Workout Plan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +16,8 @@
         --pink-light: #fdf2f8;
         --green: #10b981;
         --green-light: #ecfdf5;
+        --blue: #3b82f6;
+        --blue-light: #eff6ff;
         --card-bg: #ffffff;
         --gym-bg: #f8fdfb;
         --home-bg: #fef7fb;
@@ -46,6 +48,48 @@
         padding: 40px 20px 80px;
         color: var(--text);
         -webkit-font-smoothing: antialiased;
+      }
+
+      /* ─── Navigation ─── */
+      .nav-bar {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+      }
+
+      .nav-btn {
+        padding: 10px 24px;
+        border-radius: 10px;
+        border: 2px solid var(--border);
+        background: var(--card-bg);
+        font-family: inherit;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .nav-btn:hover {
+        border-color: var(--text);
+        color: var(--text);
+      }
+
+      .nav-btn.active {
+        background: var(--text);
+        color: white;
+        border-color: var(--text);
+      }
+
+      /* ─── Page sections ─── */
+      .page {
+        display: none;
+      }
+
+      .page.active {
+        display: block;
       }
 
       header {
@@ -264,589 +308,706 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>Leg Day Workout</h1>
-      <p>Dumbbell move &nbsp;→&nbsp; Gym equivalent</p>
-    </header>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+      <button class="nav-btn active" onclick="showPage('legs')">Leg Day</button>
+      <button class="nav-btn" onclick="showPage('arms')">Arms & Back Day</button>
+    </nav>
 
-    <div class="legend">
-      <div class="legend-item">
-        <span class="dot dot-home"></span> At Home / Dumbbells
+    <!-- ════════════════════════════════════════════ -->
+    <!-- LEG DAY PAGE                                 -->
+    <!-- ════════════════════════════════════════════ -->
+    <div id="page-legs" class="page active">
+      <header>
+        <h1>Leg Day Workout</h1>
+        <p>Dumbbell move &nbsp;&rarr;&nbsp; Gym equivalent</p>
+      </header>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="dot dot-home"></span> At Home / Dumbbells
+        </div>
+        <div class="legend-item">
+          <span class="dot dot-gym"></span> Gym Machine / Bar
+        </div>
       </div>
-      <div class="legend-item">
-        <span class="dot dot-gym"></span> Gym Machine / Bar
+
+      <div class="exercises">
+        <!-- 1. Romanian Deadlift -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">1</div>
+            <div class="exercise-title">Romanian Deadlift</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media0.giphy.com/media/VYVbt5yJmxWDo38MaV/giphy.gif"
+                  alt="Dumbbell Romanian Deadlift"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Dumbbell Romanian Deadlift</div>
+              <div class="tip">Hinge at hips, keep back flat, feel the hamstring stretch</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media1.tenor.com/m/p4HVLW9g12sAAAAC/rdl.gif"
+                  alt="Smith Machine RDL"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Smith Machine RDL</div>
+              <div class="tip">Fixed bar path gives more stability — great for loading up weight</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Sumo Deadlift -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">2</div>
+            <div class="exercise-title">Sumo Deadlift</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://i.makeagif.com/media/8-14-2020/qOdSij.gif"
+                  alt="Dumbbell Sumo Deadlift"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Dumbbell Sumo Deadlift</div>
+              <div class="tip">Wide stance, toes out, chest up — targets inner thighs and glutes</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media1.tenor.com/m/e0qeS17dv7QAAAAC/legpress45-leg-press.gif"
+                  alt="Wide Stance Leg Press"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Wide Stance Leg Press</div>
+              <div class="tip">Place feet wide & high on the plate to mimic sumo — hits glutes and adductors</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Single Leg Deadlift -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">3</div>
+            <div class="exercise-title">Single Leg Deadlift</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media4.giphy.com/media/pkUwmW6ZDpsqa5nOiv/giphy.gif"
+                  alt="Single Leg Deadlift"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Dumbbell Single Leg Deadlift</div>
+              <div class="tip">Balance challenge — keep a soft bend in the standing knee</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://i.makeagif.com/media/7-06-2022/2uiskX.gif"
+                  alt="B-Stance RDL"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">B-Stance RDL (Kickstand)</div>
+              <div class="tip">Back foot lightly touches floor for balance — easier to load heavier</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Glute Bridge -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">4</div>
+            <div class="exercise-title">Weighted Glute Bridge</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://barbend.com/wp-content/uploads/2024/02/dumbbell-hip-thrust-barbend-movement-gif-masters.gif"
+                  alt="Dumbbell Hip Thrust"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Dumbbell Hip Thrust</div>
+              <div class="tip">Back on a bench, dumbbell on hips — drive up and squeeze glutes at the top</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://www.garagegymreviews.com/wp-content/uploads/2023/10/smith-machine-hip-thrust.gif"
+                  alt="Smith Machine Hip Thrust"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Smith Machine Hip Thrust</div>
+              <div class="tip">Bar locked in the track for stability — easy to load heavy and isolate glutes</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Side Leg Raise -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">5</div>
+            <div class="exercise-title">Weighted Side Leg Raise</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media.giphy.com/media/ZVzlAXAqIXYAs6gEPM/giphy.gif"
+                  alt="Side Leg Raise"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Weighted Side Leg Raise</div>
+              <div class="tip">Lie on your side or while standing, ankle weight on leg — raise slowly and control the drop</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://s5.gifyu.com/images/cable-hip-abduction.gif"
+                  alt="Cable Hip Abduction"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Cable Hip Abduction</div>
+              <div class="tip">Attach ankle cuff to low cable, stand side-on — lift leg out with control</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Sumo Squat / Sumo Pulse Squat -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">6</div>
+            <div class="exercise-title">Sumo Squat / Sumo Pulse Squat</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media0.giphy.com/media/MdRI2tmI5e7HX7P76U/giphy.gif"
+                  alt="Dumbbell Sumo Squat"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Dumbbell Sumo Squat / Pulse</div>
+              <div class="tip">Hold dumbbell at chest, feet wide — full squat then pulse 2–3 inches at the bottom</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://www.strengthlog.com/wp-content/uploads/2020/03/hip-adduction-machine.gif"
+                  alt="Seated Adductor Machine"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Seated Adductor Machine</div>
+              <div class="tip">Targets the same inner-thigh muscles — squeeze slow on the way in</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Parallel Squat -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">7</div>
+            <div class="exercise-title">Parallel Squat</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media1.tenor.com/m/zDqpubY7520AAAAC/dumbbell-front.gif"
+                  alt="Dumbbell Squat"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Parallel Dumbbell Squat</div>
+              <div class="tip">Squat to 90° (thighs parallel to floor) — control the descent</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media1.giphy.com/media/fQ8zIzY4Dl6TfoG71i/giphy.gif"
+                  alt="Standard Leg Press"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Standard Leg Press</div>
+              <div class="tip">Feet shoulder-width apart, mid-plate — great for quad development</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Calf Raise -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">8</div>
+            <div class="exercise-title">Calf Raise</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media4.giphy.com/media/fr4ZylRn999gIQhhre/giphy.gif"
+                  alt="Dumbbell Calf Raise"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Dumbbell Calf Raise</div>
+              <div class="tip">Use a step for full range of motion — pause at the top</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://media1.tenor.com/m/dE7yo5T973EAAAAC/calves-raise.gif"
+                  alt="Seated Calf Raise Machine"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Seated Calf Raise Machine</div>
+              <div class="tip">Seated position emphasises the soleus — go slow and feel the stretch</div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <footer>Leg Day Workout Guide</footer>
     </div>
 
-    <div class="exercises">
-      <!-- 1. Romanian Deadlift -->
-      <div class="exercise-row">
-        <div class="exercise-header">
-          <div class="exercise-number">1</div>
-          <div class="exercise-title">Romanian Deadlift</div>
+    <!-- ════════════════════════════════════════════ -->
+    <!-- ARMS & BACK DAY PAGE                         -->
+    <!-- ════════════════════════════════════════════ -->
+    <div id="page-arms" class="page">
+      <header>
+        <h1>Arms & Back Day Workout</h1>
+        <p>Dumbbell move &nbsp;&rarr;&nbsp; Gym equivalent</p>
+      </header>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="dot dot-home"></span> At Home / Dumbbells
         </div>
-        <div class="exercise-pair">
-          <div class="variant variant-home">
-            <span class="variant-label label-home">Dumbbell</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media0.giphy.com/media/VYVbt5yJmxWDo38MaV/giphy.gif"
-                alt="Dumbbell Romanian Deadlift"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
+        <div class="legend-item">
+          <span class="dot dot-gym"></span> Gym Machine / Cable
+        </div>
+      </div>
+
+      <div class="exercises">
+        <!-- 1. Bent Over Dumbbell Row -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">1</div>
+            <div class="exercise-title">Bent Over Dumbbell Row</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Bent-Over-Dumbbell-Row.gif"
+                  alt="Bent Over Dumbbell Row"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
               </div>
+              <div class="variant-name">Bent Over Dumbbell Row</div>
+              <div class="tip">Hinge forward 45°, pull dumbbells to hips — squeeze shoulder blades together at the top</div>
             </div>
-            <div class="variant-name">Dumbbell Romanian Deadlift</div>
-            <div class="tip">
-              Hinge at hips, keep back flat, feel the hamstring stretch
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Seated-Cable-Row.gif"
+                  alt="Seated Cable Row"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Seated Cable Row (V-bar)</div>
+              <div class="tip">Sit upright, pull V-bar to torso — keep elbows close and squeeze at the end</div>
             </div>
           </div>
-          <div class="variant variant-gym">
-            <span class="variant-label label-gym">Gym</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media1.tenor.com/m/p4HVLW9g12sAAAAC/rdl.gif"
-                alt="Smith Machine RDL"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
+        </div>
+
+        <!-- 2. Bent Over T-Row -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">2</div>
+            <div class="exercise-title">Bent Over T-Row</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://program.rapidloss.com.au/wp-content/uploads/dumbbell-bent-over-row.gif"
+                  alt="Bent Over T-Row"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
               </div>
+              <div class="variant-name">Bent Over T-Row</div>
+              <div class="tip">Pull elbows wide forming a T-shape — targets upper back and rear delts</div>
             </div>
-            <div class="variant-name">Smith Machine RDL</div>
-            <div class="tip">
-              Fixed bar path gives more stability — great for loading up weight
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Seated-Row-Machine.gif"
+                  alt="Chest-Supported Row Machine"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Chest-Supported Row Machine</div>
+              <div class="tip">Chest pad removes momentum — focus purely on pulling with your back</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Single Arm Row -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">3</div>
+            <div class="exercise-title">Single Arm Row</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Row.gif"
+                  alt="Single Arm Dumbbell Row"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Single Arm Dumbbell Row</div>
+              <div class="tip">One hand on bench, pull dumbbell to hip — keep core tight and avoid rotating</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/08/Lever-Reverse-T-Bar-Row.gif"
+                  alt="Iso-Lateral Row Machine"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Iso-Lateral Row Machine</div>
+              <div class="tip">One arm at a time — the machine guides the path so you can focus on the squeeze</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Bent Over Reverse Fly -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">4</div>
+            <div class="exercise-title">Bent Over Reverse Fly</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Reverse-Fly.gif"
+                  alt="Bent Over Reverse Fly"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Bent Over Reverse Fly</div>
+              <div class="tip">Hinge forward, arms out to sides — light weight, focus on squeezing rear delts</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Rear-Delt-Machine-Flys.gif"
+                  alt="Reverse Pec Deck Machine"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Reverse Pec Deck Machine</div>
+              <div class="tip">Sit facing the pad, push handles back — isolates rear delts with consistent tension</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Dumbbell Y Raise -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">5</div>
+            <div class="exercise-title">Dumbbell Y Raise</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://d2culxnxbccemt.cloudfront.net/bowl/content/uploads/2020/11/24132123/iyt-2.gif"
+                  alt="Dumbbell Y Raise"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Dumbbell Y Raise</div>
+              <div class="tip">Raise arms at 45° forming a Y — targets lower traps and shoulders</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/10/Incline-Dumbbell-Y-Raise.gif"
+                  alt="Chest-Supported Y Raise"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Chest-Supported Dumbbell Y-Raise</div>
+              <div class="tip">Lie face down on incline bench — removes momentum for deeper trap activation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Advanced Alternate Bicep Curl -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">6</div>
+            <div class="exercise-title">Advanced Alternate Bicep Curl</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Curl.gif"
+                  alt="Advanced Alternate Bicep Curl"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Advanced Alternate Bicep Curl</div>
+              <div class="tip">Alternate arms with slow negatives — supinate wrist at the top for peak contraction</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2022/06/Seated-dumbbell-alternating-curl.gif"
+                  alt="Seated Dumbbell Bicep Curls"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Seated Dumbbell Bicep Curls</div>
+              <div class="tip">Seated position prevents swinging — strict form for maximum bicep isolation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Supported Bicep Curl -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">7</div>
+            <div class="exercise-title">Supported Bicep Curl</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Preacher-Curl.gif"
+                  alt="Supported Bicep Curl"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Supported / Preacher Curl</div>
+              <div class="tip">Arm rests on incline bench or preacher pad — eliminates cheating for strict bicep work</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/04/Lever-Preacher-Curl.gif"
+                  alt="Preacher Curl Machine"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Preacher Curl Machine</div>
+              <div class="tip">Machine locks your arms in place — consistent resistance through the full range</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Dumbbell Bicep Lift -->
+        <div class="exercise-row">
+          <div class="exercise-header">
+            <div class="exercise-number">8</div>
+            <div class="exercise-title">Dumbbell Bicep Lift</div>
+          </div>
+          <div class="exercise-pair">
+            <div class="variant variant-home">
+              <span class="variant-label label-home">Dumbbell</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://i.makeagif.com/media/5-05-2020/fZNpzj.gif"
+                  alt="Dumbbell Bicep Lift"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Dumbbell Bicep Lift</div>
+              <div class="tip">Standing hammer or standard curl — keep elbows pinned to sides, full range of motion</div>
+            </div>
+            <div class="variant variant-gym">
+              <span class="variant-label label-gym">Gym</span>
+              <div class="gif-wrap">
+                <img
+                  src="https://fitnessprogramer.com/wp-content/uploads/2021/06/rope-bicep-curls.gif"
+                  alt="Cable Rope Hammer Curls"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                />
+                <div class="gif-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>GIF unavailable
+                </div>
+              </div>
+              <div class="variant-name">Cable Rope Hammer Curls</div>
+              <div class="tip">Rope attachment on low cable — constant tension through the whole curl</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 2. Sumo Deadlift -->
-      <div class="exercise-row">
-        <div class="exercise-header">
-          <div class="exercise-number">2</div>
-          <div class="exercise-title">Sumo Deadlift</div>
-        </div>
-        <div class="exercise-pair">
-          <div class="variant variant-home">
-            <span class="variant-label label-home">Dumbbell</span>
-            <div class="gif-wrap">
-              <img
-                src="https://i.makeagif.com/media/8-14-2020/qOdSij.gif"
-                alt="Dumbbell Sumo Deadlift"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Dumbbell Sumo Deadlift</div>
-            <div class="tip">
-              Wide stance, toes out, chest up — targets inner thighs and glutes
-            </div>
-          </div>
-          <div class="variant variant-gym">
-            <span class="variant-label label-gym">Gym</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media1.tenor.com/m/e0qeS17dv7QAAAAC/legpress45-leg-press.gif"
-                alt="Wide Stance Leg Press"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Wide Stance Leg Press</div>
-            <div class="tip">
-              Place feet wide & high on the plate to mimic sumo — hits glutes
-              and adductors
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. Single Leg Deadlift -->
-      <div class="exercise-row">
-        <div class="exercise-header">
-          <div class="exercise-number">3</div>
-          <div class="exercise-title">Single Leg Deadlift</div>
-        </div>
-        <div class="exercise-pair">
-          <div class="variant variant-home">
-            <span class="variant-label label-home">Dumbbell</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media4.giphy.com/media/pkUwmW6ZDpsqa5nOiv/giphy.gif"
-                alt="Single Leg Deadlift"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Dumbbell Single Leg Deadlift</div>
-            <div class="tip">
-              Balance challenge — keep a soft bend in the standing knee
-            </div>
-          </div>
-          <div class="variant variant-gym">
-            <span class="variant-label label-gym">Gym</span>
-            <div class="gif-wrap">
-              <img
-                src="https://i.makeagif.com/media/7-06-2022/2uiskX.gif"
-                alt="B-Stance RDL"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">B-Stance RDL (Kickstand)</div>
-            <div class="tip">
-              Back foot lightly touches floor for balance — easier to load
-              heavier
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. Glute Bridge -->
-      <div class="exercise-row">
-        <div class="exercise-header">
-          <div class="exercise-number">4</div>
-          <div class="exercise-title">Weighted Glute Bridge</div>
-        </div>
-        <div class="exercise-pair">
-          <div class="variant variant-home">
-            <span class="variant-label label-home">Dumbbell</span>
-            <div class="gif-wrap">
-              <img
-                src="https://barbend.com/wp-content/uploads/2024/02/dumbbell-hip-thrust-barbend-movement-gif-masters.gif"
-                alt="Dumbbell Hip Thrust"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Dumbbell Hip Thrust</div>
-            <div class="tip">
-              Back on a bench, dumbbell on hips — drive up and squeeze glutes at
-              the top
-            </div>
-          </div>
-          <div class="variant variant-gym">
-            <span class="variant-label label-gym">Gym</span>
-            <div class="gif-wrap">
-              <img
-                src="https://www.garagegymreviews.com/wp-content/uploads/2023/10/smith-machine-hip-thrust.gif"
-                alt="Smith Machine Hip Thrust"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Smith Machine Hip Thrust</div>
-            <div class="tip">
-              Bar locked in the track for stability — easy to load heavy and
-              isolate glutes
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. Side Leg Raise -->
-      <div class="exercise-row">
-        <div class="exercise-header">
-          <div class="exercise-number">5</div>
-          <div class="exercise-title">Weighted Side Leg Raise</div>
-        </div>
-        <div class="exercise-pair">
-          <div class="variant variant-home">
-            <span class="variant-label label-home">Dumbbell</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media.giphy.com/media/ZVzlAXAqIXYAs6gEPM/giphy.gif"
-                alt="Side Leg Raise"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Weighted Side Leg Raise</div>
-            <div class="tip">
-              Lie on your side or while standing, ankle weight on leg — raise slowly and
-              control the drop
-            </div>
-          </div>
-          <div class="variant variant-gym">
-            <span class="variant-label label-gym">Gym</span>
-            <div class="gif-wrap">
-              <img
-                src="https://s5.gifyu.com/images/cable-hip-abduction.gif"
-                alt="Cable Hip Abduction"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Cable Hip Abduction</div>
-            <div class="tip">
-              Attach ankle cuff to low cable, stand side-on — lift leg out with
-              control
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6. Sumo Squat / Sumo Pulse Squat -->
-      <div class="exercise-row">
-        <div class="exercise-header">
-          <div class="exercise-number">6</div>
-          <div class="exercise-title">Sumo Squat / Sumo Pulse Squat</div>
-        </div>
-        <div class="exercise-pair">
-          <div class="variant variant-home">
-            <span class="variant-label label-home">Dumbbell</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media0.giphy.com/media/MdRI2tmI5e7HX7P76U/giphy.gif"
-                alt="Dumbbell Sumo Squat"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg>GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Dumbbell Sumo Squat / Pulse</div>
-            <div class="tip">
-              Hold dumbbell at chest, feet wide — full squat then pulse 2–3 inches at the bottom
-            </div>
-          </div>
-          <div class="variant variant-gym">
-            <span class="variant-label label-gym">Gym</span>
-            <div class="gif-wrap">
-              <img
-                src="https://www.strengthlog.com/wp-content/uploads/2020/03/hip-adduction-machine.gif"
-                alt="Seated Adductor Machine"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg>GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Seated Adductor Machine</div>
-            <div class="tip">
-              Targets the same inner-thigh muscles — squeeze slow on the way in
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 7. Parallel Squat -->
-      <div class="exercise-row">
-        <div class="exercise-header">
-          <div class="exercise-number">7</div>
-          <div class="exercise-title">Parallel Squat</div>
-        </div>
-        <div class="exercise-pair">
-          <div class="variant variant-home">
-            <span class="variant-label label-home">Dumbbell</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media1.tenor.com/m/zDqpubY7520AAAAC/dumbbell-front.gif"
-                alt="Dumbbell Squat"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Parallel Dumbbell Squat</div>
-            <div class="tip">
-              Squat to 90° (thighs parallel to floor) — control the descent
-            </div>
-          </div>
-          <div class="variant variant-gym">
-            <span class="variant-label label-gym">Gym</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media1.giphy.com/media/fQ8zIzY4Dl6TfoG71i/giphy.gif"
-                alt="Standard Leg Press"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Standard Leg Press</div>
-            <div class="tip">
-              Feet shoulder-width apart, mid-plate — great for quad development
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 8. Calf Raise -->
-      <div class="exercise-row">
-        <div class="exercise-header">
-          <div class="exercise-number">8</div>
-          <div class="exercise-title">Calf Raise</div>
-        </div>
-        <div class="exercise-pair">
-          <div class="variant variant-home">
-            <span class="variant-label label-home">Dumbbell</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media4.giphy.com/media/fr4ZylRn999gIQhhre/giphy.gif"
-                alt="Dumbbell Calf Raise"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Dumbbell Calf Raise</div>
-            <div class="tip">
-              Use a step for full range of motion — pause at the top
-            </div>
-          </div>
-          <div class="variant variant-gym">
-            <span class="variant-label label-gym">Gym</span>
-            <div class="gif-wrap">
-              <img
-                src="https://media1.tenor.com/m/dE7yo5T973EAAAAC/calves-raise.gif"
-                alt="Seated Calf Raise Machine"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'flex';
-                "
-              />
-              <div class="gif-placeholder">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" /></svg
-                >GIF unavailable
-              </div>
-            </div>
-            <div class="variant-name">Seated Calf Raise Machine</div>
-            <div class="tip">
-              Seated position emphasises the soleus — go slow and feel the
-              stretch
-            </div>
-          </div>
-        </div>
-      </div>
+      <footer>Arms & Back Day Workout Guide</footer>
     </div>
 
-    <footer>Leg Day Workout Guide</footer>
+    <script>
+      function showPage(page) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('page-' + page).classList.add('active');
+        event.target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    </script>
   </body>
 </html>
